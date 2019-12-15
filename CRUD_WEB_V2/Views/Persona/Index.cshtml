@@ -1,0 +1,39 @@
+﻿@model List<CRUD_WEB_V2.Models.ViewModels.PersonaViewModel>
+
+
+@{
+    ViewBag.Title = "CRUD";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="row">
+    <a href="~/Persona/Nuevo" class="btn btn-primary">Agregar nueva persona</a>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered">
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Descripcion</th>
+                <th></th>
+            </tr>
+            @foreach (var elemento in Model)
+            {
+                <tr>
+                    <td>@elemento.idPersona</td>
+                    <td>@elemento.nombre</td>
+                    <td>@elemento.edad</td>
+                    <td>@elemento.descripcion</td>
+                    <td>
+                        <a class="btn btn-default" href="~/Persona/Editar/@elemento.idPersona">Editar</a>
+                        <a class="btn btn-danger" href="~/Persona/Eliminar/@elemento.idPersona">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
